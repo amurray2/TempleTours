@@ -46,7 +46,7 @@ namespace TempleTours.Controllers
         [HttpPost]
         public IActionResult SignUpForm(AppointmentFormViewModel a, int timeId)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 context.Times.Single(t => t.TimeId == timeId).Available = false;
                 context.Appointments.Add(a.Appointment);
@@ -60,8 +60,11 @@ namespace TempleTours.Controllers
                     TimeSlot = context.Times.Single(t => t.TimeId == timeId)
                 });
             }
-            return View(context.Times
-                .Where(t => t.Available == true)
-                );
+        }
+
+        public IActionResult Appointments()
+        {
+            return View(context.Appointments);
+        }
     }
 }
