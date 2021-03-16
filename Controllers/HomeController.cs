@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using TempleTours.Models;
+using TempleTours.Models.ViewModels;
 
 namespace TempleTours.Controllers
 {
@@ -29,44 +30,38 @@ namespace TempleTours.Controllers
 
         public IActionResult TimeSlots()//need to pass in all of the available time slots
         {
-            return View(context.Times
-                .Where(t => t.Available == true)
-                );
+
+            return View(context.Times.Where(t => t.Available == true));
+        
         }
 
         [HttpGet]
-        public IActionResult SignUpForm(Time time) //The appointment time needs to be passed into the SignUpForm page when a button is selected from the TimeSlots page. This happens with Get?
+        public IActionResult SignUpForm(int timeId)
         {
-            return View(time);
+            return View(new AppointmentFormViewModel { 
+                TimeSlot = context.Times.Single(t => t.TimeId == timeId)
+            });
         }
+
         [HttpPost]
-        public IActionResult SignUpForm(Appointment appointment) //The post method for this form collects the appointment information added and saves it to the context.
+        public IActionResult SignUpForm(AppointmentFormViewModel a, int timeId)
         {
-            if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
-                context.Appointments.Add(appointment);
+                context.Times.Single(t => t.TimeId == timeId).Available = false;
+                context.Appointments.Add(a.Appointment);
                 context.SaveChanges();
-                //At this point, we need to figure out how to take the time slot away that was used for the appointment
-                //Maybe something like this:
-                //context.Times.RemoveAll(t => t.Times.TimeID == context.Times.TimeId);
-                //Or
-                //context.Times
-                    //.Where(t=> t.TimeId == appointment.TimeSlot)
-                    //.Update(t => t.Times.Available = false)
+                return RedirectToAction("Index");
             }
-            return View("Index"); //redirects to the home page when submitted
-        }
-
-
-        public IActionResult Appointments() //This will return the Appointments view. This page will list all of the appointments that have been made
-        {
-            return View(context.Appointments);
-        } 
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+            else
+            {
+                return View(new AppointmentFormViewModel
+                {
+                    TimeSlot = context.Times.Single(t => t.TimeId == timeId)
+                });
+            }
+            return View(context.Times
+                .Where(t => t.Available == true)
+                );
     }
 }
