@@ -1,12 +1,33 @@
 ﻿@model IEnumerable<Time>
 
-@*<div>
-    @foreach (Time t in Model)
-    {
-    <form asp-controller="Home" asp-action="SignUpForm" method="get">
-        <button type="submit" class="btn btn-primary">@t.TimeDescription.ToString("h:mm tt")</button>
-        <input type="hidden" name="timeId" value="@t.TimeId"/>
-    </form>
-    <br />
-    }
-</div>*@
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Time</th>
+                        <th scope="col">Book TIme</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Time t in Model)
+                    {
+                        <tr>
+                            <td>@t.TimeDescription.ToString("h:mm tt")</td>
+                            <td>
+                                <form asp-controller="Home" asp-action="SignUpForm" method="get">
+                                    <button type="submit" class="btn btn-primary">Book</button>
+                                    <input type="hidden" name="timeId" value="@t.TimeId" />
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-9">
+        </div>
+    </div>
+</div>
+

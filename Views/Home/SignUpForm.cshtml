@@ -6,7 +6,7 @@
 @model TempleTours.Models.ViewModels.AppointmentFormViewModel
 @*<div>@Model.TimeSlot.TimeId</div>*@
 
-@*<form method="post" asp-controller="Home" asp-action="SignUpForm">
+<form method="post" asp-controller="Home" asp-action="SignUpForm">
     <label asp-for="@Model.Appointment.GroupName">Group Name</label>
     <input type="text" asp-for="@Model.Appointment.GroupName" />
     <br />
@@ -25,4 +25,4 @@
     <input type="hidden" name="timeId" value="@Model.TimeSlot.TimeId" />
     <input type="submit" value="Add" />
     <div asp-validation-summary="All"></div>
-</form>*@
+</form>
