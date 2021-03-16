@@ -6,7 +6,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using TempleTours.Models;
-using TempleTours.Models.ViewModels;
 
 namespace TempleTours.Controllers
 {
@@ -29,35 +28,7 @@ namespace TempleTours.Controllers
 
         public IActionResult TimeSlots()
         {
-            return View(context.Times.Where(t => t.Available == true));
-        
-        }
-
-        [HttpGet]
-        public IActionResult SignUpForm(int timeId)
-        {
-            return View(new AppointmentFormViewModel { 
-                TimeSlot = context.Times.Single(t => t.TimeId == timeId)
-            });
-        }
-
-        [HttpPost]
-        public IActionResult SignUpForm(AppointmentFormViewModel a, int timeId)
-        {
-            if(ModelState.IsValid)
-            {
-                context.Times.Single(t => t.TimeId == timeId).Available = false;
-                context.Appointments.Add(a.Appointment);
-                context.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                return View(new AppointmentFormViewModel
-                {
-                    TimeSlot = context.Times.Single(t => t.TimeId == timeId)
-                });
-            }
+            return View(context.Times);
         }
 
         public IActionResult Privacy()
