@@ -27,8 +27,10 @@ namespace TempleTours.Controllers
             return View();
         }
 
-        public IActionResult TimeSlots()
+
+        public IActionResult TimeSlots()//need to pass in all of the available time slots
         {
+
             return View(context.Times.Where(t => t.Available == true));
         
         }
@@ -58,17 +60,8 @@ namespace TempleTours.Controllers
                     TimeSlot = context.Times.Single(t => t.TimeId == timeId)
                 });
             }
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+            return View(context.Times
+                .Where(t => t.Available == true)
+                );
     }
 }
