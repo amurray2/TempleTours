@@ -1,9 +1,12 @@
-﻿@model IQueryable<Time>
+﻿@model IEnumerable<Time>
 
-
-@foreach(var x in Model)
-{
-    @x.TimeId
-    @x.TimeDescription
-    @x.Available
-}
+@*<div>
+    @foreach (Time t in Model)
+    {
+    <form asp-controller="Home" asp-action="SignUpForm" method="get">
+        <button type="submit" class="btn btn-primary">@t.TimeDescription.ToString("h:mm tt")</button>
+        <input type="hidden" name="timeId" value="@t.TimeId"/>
+    </form>
+    <br />
+    }
+</div>*@
