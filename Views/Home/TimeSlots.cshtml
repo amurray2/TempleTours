@@ -1,0 +1,9 @@
+﻿@model IQueryable<Time>
+
+
+@foreach(var x in Model)
+{
+    @x.TimeId
+    @x.TimeDescription
+    @x.Available
+}
