@@ -1,2 +1,25 @@
+@model IEnumerable<Appointment>
 
-﻿@*@model IEnumerable<Appointment>*@
+<br />
+<br />
+<h3 class="text-center">Scheduled Appointments</h3>
+<br />
+
+@foreach (var x in Model)
+{
+    <div class="card card-outline-primary m-1 p-1 card bg-light mb-3">
+        <br />
+        <div class="ml-4">
+            <h4>
+                @x.TimeSlot.ToString("MMMM dd, yyyy h:mm tt")
+            </h4>
+            <br />
+            <h5>@x.GroupName (@x.GroupSize)</h5>
+            <div class="text-muted">
+                <p>@x.EmailAddress</p>
+                <p>@x.Phone</p>
+            </div>
+        </div>
+    </div>
+}
+
