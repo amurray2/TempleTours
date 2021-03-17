@@ -30,7 +30,7 @@ namespace TempleTours
             services.AddDbContext<TempleTourContext>(options =>
             {
                 options.UseSqlite(Configuration["ConnectionStrings:TempleTourConnection"]);
-            });
+            }); //added this service to use a Sqlite database
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,9 +55,12 @@ namespace TempleTours
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute( //This enpoint makes the url to the signupform view more user friendly.
+                    "SignUpForm",
+                    "SignUpForm/{timeId:int}",
+                    new { Controller = "Home", action = "SignUpForm" });
+
+                endpoints.MapDefaultControllerRoute();
             });
         }
     }
