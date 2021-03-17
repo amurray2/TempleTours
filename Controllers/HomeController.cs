@@ -30,9 +30,7 @@ namespace TempleTours.Controllers
 
         public IActionResult TimeSlots()//need to pass in all of the available time slots
         {
-
             return View(context.Times.Where(t => t.Available == true));
-        
         }
 
         [HttpGet]
@@ -60,9 +58,11 @@ namespace TempleTours.Controllers
                     TimeSlot = context.Times.Single(t => t.TimeId == timeId)
                 });
             }
-            return View(context.Times
-                .Where(t => t.Available == true)
-                );
+        }
+
+        public IActionResult Appointments()
+        {
+            return View(context.Appointments);
         }
     }
 }
