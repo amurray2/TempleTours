@@ -3,6 +3,7 @@
 <div class="container">
     <div class="row">
         <div class="col-3">
+            <h2>Tuesday</h2>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -11,20 +12,18 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!--Gets the timeslots only for Tuesday-->
                     @foreach (Time t in Model.Where(t => t.TimeDescription.ToString("ddd") == "Tue"))
                     {
-                        @if (t.TimeDescription.ToString("ddd") == "Tue")
-                        {
-                            <tr>
-                                <td>@t.TimeDescription.ToString("h:mm tt")</td>
-                                <td>
-                                    <form asp-controller="Home" asp-action="SignUpForm" method="get">
-                                        <button type="submit" class="btn btn-primary">Book</button>
-                                        <input type="hidden" name="timeId" value="@t.TimeId" />
-                                    </form>
-                                </td>
-                            </tr>
-                        }
+                        <tr>
+                            <td>@t.TimeDescription.ToString("h:mm tt")</td>
+                            <td>
+                                <form asp-controller="Home" asp-action="SignUpForm" method="get">
+                                    <button type="submit" class="btn btn-primary">Book</button>
+                                    <input type="hidden" name="timeId" value="@t.TimeId" />
+                                </form>
+                            </td>
+                        </tr>
                     }
                 </tbody>
             </table>
