@@ -1,4 +1,5 @@
-﻿a.navbar-brand {
+﻿/*Changes the font on the shared layout to serif*/
+a.navbar-brand {
     white-space: normal;
     text-align: center;
     word-break: break-all;
