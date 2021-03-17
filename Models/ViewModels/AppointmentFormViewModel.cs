@@ -7,6 +7,7 @@ namespace TempleTours.Models.ViewModels
 {
     public class AppointmentFormViewModel
     {
+        //A view model for the AppointmentSignUpForm
         public Appointment Appointment { get; set; }
         public Time TimeSlot { get; set; }
     }
