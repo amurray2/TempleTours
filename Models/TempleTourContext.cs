@@ -8,6 +8,7 @@ namespace TempleTours.Models
 {
     public class TempleTourContext : DbContext
     {
+        //Our database context file
         public TempleTourContext(DbContextOptions<TempleTourContext> options) : base(options)
         {
 
