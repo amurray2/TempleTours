@@ -30,9 +30,7 @@ namespace TempleTours.Controllers
 
         public IActionResult TimeSlots()//need to pass in all of the available time slots
         {
-
             return View(context.Times.Where(t => t.Available == true));
-        
         }
 
         [HttpGet]
