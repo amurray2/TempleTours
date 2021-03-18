@@ -5,24 +5,44 @@
 }
 @model TempleTours.Models.ViewModels.AppointmentFormViewModel
 @*<div>@Model.TimeSlot.TimeId</div>*@
-
-<form method="post" asp-controller="Home" asp-action="SignUpForm">
-    <label asp-for="@Model.Appointment.GroupName">Group Name</label>
-    <input type="text" asp-for="@Model.Appointment.GroupName" />
-    <br />
-    <label asp-for="@Model.Appointment.GroupSize">Group Size</label>
-    <input type="number" asp-for="@Model.Appointment.GroupSize" />
-    <br />
-    <label asp-for="@Model.Appointment.EmailAddress">Email</label>
-    <input type="text" asp-for="@Model.Appointment.EmailAddress" />
-    <br />
-    <label asp-for="@Model.Appointment.Phone">Phone Number</label>
-    <input asp-for="@Model.Appointment.Phone" />
-    <br />
-    <label asp-for="@Model.Appointment.TimeSlot">Appointment Time</label>
-    <input type="text" value="@Model.TimeSlot.TimeDescription.ToString("h:mm tt")" readonly />
-    <input type="hidden" asp-for="@Model.Appointment.TimeSlot" value="@Model.TimeSlot.TimeDescription" />
-    <input type="hidden" name="timeId" value="@Model.TimeSlot.TimeId" />
-    <input type="submit" value="Add" />
-    <div asp-validation-summary="All"></div>
-</form>
+<div class="container" style="border: solid 2px black; margin-top: 100px;">
+    <h1>Please fill out the form below</h1>
+    <h2>To schedule your group tour of the Layton Utah Temple</h2>
+    <form method="post" asp-controller="Home" asp-action="SignUpForm">
+        <div class="mb-3">
+            <label asp-for="@Model.Appointment.GroupName">Group Name</label>
+            <br />
+            <input type="text" asp-for="@Model.Appointment.GroupName" />
+            <br />
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.Appointment.GroupSize">Group Size</label>
+            <br />
+            <input type="number" asp-for="@Model.Appointment.GroupSize" />
+            <br />
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.Appointment.EmailAddress">Email</label>
+            <br />
+            <input type="text" asp-for="@Model.Appointment.EmailAddress" />
+            <br />
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.Appointment.Phone">Phone Number</label>
+            <br />
+            <input asp-for="@Model.Appointment.Phone" />
+            <br />
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.Appointment.TimeSlot">Appointment Time</label>
+        </div>
+        <input type="text" value="@Model.TimeSlot.TimeDescription.ToString("h:mm tt")" readonly style="background-color: lightgray;"/>
+        <input type="hidden" asp-for="@Model.Appointment.TimeSlot" value="@Model.TimeSlot.TimeDescription" />
+        <input type="hidden" name="timeId" value="@Model.TimeSlot.TimeId" />
+        <!--<input type="submit" value="Add" />-->
+        <br />
+        <br />
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <div asp-validation-summary="All"></div>
+    </form>
+</div>
