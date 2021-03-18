@@ -3,6 +3,7 @@
 <div class="container">
     <div class="row">
         <div class="col-3">
+            <h2>Monday</h2>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -11,25 +12,177 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (Time t in Model.Where(t => t.TimeDescription.ToString("ddd") == "Tue"))
+                    <!--Gets the timeslots only for Monday-->
+                    @foreach (Time t in Model.Where(t => t.TimeDescription.ToString("ddd") == "Mon"))
                     {
-                        @if (t.TimeDescription.ToString("ddd") == "Tue")
-                        {
-                            <tr>
-                                <td>@t.TimeDescription.ToString("h:mm tt")</td>
-                                <td>
-                                    <form asp-controller="Home" asp-action="SignUpForm" method="get">
-                                        <button type="submit" class="btn btn-primary">Book</button>
-                                        <input type="hidden" name="timeId" value="@t.TimeId" />
-                                    </form>
-                                </td>
-                            </tr>
-                        }
+                        <tr>
+                            <td>@t.TimeDescription.ToString("h:mm tt")</td>
+                            <td>
+                                <form asp-controller="Home" asp-action="SignUpForm" method="get">
+                                    <button type="submit" class="btn btn-primary">Book</button>
+                                    <input type="hidden" name="timeId" value="@t.TimeId" />
+                                </form>
+                            </td>
+                        </tr>
                     }
                 </tbody>
             </table>
         </div>
-        <div class="col-9">
+        <div class="col-3">
+            <h2>Tuesday</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Time</th>
+                        <th scope="col">Book TIme</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--Gets the timeslots only for Tuesday-->
+                    @foreach (Time t in Model.Where(t => t.TimeDescription.ToString("ddd") == "Tue"))
+                    {
+                        <tr>
+                            <td>@t.TimeDescription.ToString("h:mm tt")</td>
+                            <td>
+                                <form asp-controller="Home" asp-action="SignUpForm" method="get">
+                                    <button type="submit" class="btn btn-primary">Book</button>
+                                    <input type="hidden" name="timeId" value="@t.TimeId" />
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-3">
+            <h2>Wednesday</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Time</th>
+                        <th scope="col">Book TIme</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--Gets the timeslots only for Wednesday-->
+                    @foreach (Time t in Model.Where(t => t.TimeDescription.ToString("ddd") == "Wed"))
+                    {
+                        <tr>
+                            <td>@t.TimeDescription.ToString("h:mm tt")</td>
+                            <td>
+                                <form asp-controller="Home" asp-action="SignUpForm" method="get">
+                                    <button type="submit" class="btn btn-primary">Book</button>
+                                    <input type="hidden" name="timeId" value="@t.TimeId" />
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-3">
+            <h2>Thursday</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Time</th>
+                        <th scope="col">Book TIme</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--Gets the timeslots only for Thursday-->
+                    @foreach (Time t in Model.Where(t => t.TimeDescription.ToString("ddd") == "Thu"))
+                    {
+                        <tr>
+                            <td>@t.TimeDescription.ToString("h:mm tt")</td>
+                            <td>
+                                <form asp-controller="Home" asp-action="SignUpForm" method="get">
+                                    <button type="submit" class="btn btn-primary">Book</button>
+                                    <input type="hidden" name="timeId" value="@t.TimeId" />
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-3">
+            <h2>Friday</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Time</th>
+                        <th scope="col">Book TIme</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--Gets the timeslots only for Friday-->
+                    @foreach (Time t in Model.Where(t => t.TimeDescription.ToString("ddd") == "Fri"))
+                    {
+                        <tr>
+                            <td>@t.TimeDescription.ToString("h:mm tt")</td>
+                            <td>
+                                <form asp-controller="Home" asp-action="SignUpForm" method="get">
+                                    <button type="submit" class="btn btn-primary">Book</button>
+                                    <input type="hidden" name="timeId" value="@t.TimeId" />
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-3">
+            <h2>Saturday</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Time</th>
+                        <th scope="col">Book TIme</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--Gets the timeslots only for Saturday-->
+                    @foreach (Time t in Model.Where(t => t.TimeDescription.ToString("ddd") == "Sat"))
+                    {
+                        <tr>
+                            <td>@t.TimeDescription.ToString("h:mm tt")</td>
+                            <td>
+                                <form asp-controller="Home" asp-action="SignUpForm" method="get">
+                                    <button type="submit" class="btn btn-primary">Book</button>
+                                    <input type="hidden" name="timeId" value="@t.TimeId" />
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-3">
+            <h2>Sunday</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Time</th>
+                        <th scope="col">Book TIme</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--Gets the timeslots only for Sunday-->
+                    @foreach (Time t in Model.Where(t => t.TimeDescription.ToString("ddd") == "Sun"))
+                    {
+                        <tr>
+                            <td>@t.TimeDescription.ToString("h:mm tt")</td>
+                            <td>
+                                <form asp-controller="Home" asp-action="SignUpForm" method="get">
+                                    <button type="submit" class="btn btn-primary">Book</button>
+                                    <input type="hidden" name="timeId" value="@t.TimeId" />
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
